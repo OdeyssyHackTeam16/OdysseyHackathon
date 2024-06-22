@@ -1,0 +1,25 @@
+.not-authorized-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.sub-text {
+  font-size: 16px;
+  color: gray;
+  margin-top: 10px;
+}

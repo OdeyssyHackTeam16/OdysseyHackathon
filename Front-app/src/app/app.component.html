@@ -1,0 +1,97 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav (Menu) -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="icon-text">
+      <!-- Sidenav Title -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- SVG Path for settings icon -->
+      </svg>
+      <span class="icon-text-gap">Menu</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for Dashboard -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-box-bottom-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+          <path d="M11 15v2" />
+          <path d="M14 11v6" />
+          <path d="M17 13v4" />
+        </svg>
+        <span class="icon-text-gap">Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/adviser" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for Adviser -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-article" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+          <path d="M7 8h10" />
+          <path d="M7 12h10" />
+          <path d="M7 16h10" />
+        </svg>
+        <span class="icon-text-gap">Adviser</span>
+      </a>
+      <a mat-list-item routerLink="/aboutus" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for About Us -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-activity" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 12h4l3 8l4 -16l3 8h4" />
+        </svg>
+        <span class="icon-text-gap">About Us</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content Area -->
+  <mat-sidenav-content>
+    <!-- Header -->
+    <mat-toolbar style="background: transparent">
+      <!-- Title -->
+      <span class="fill-remaining-space"></span>
+
+      <!-- Floating Elements at top right -->
+      <div class="floating-elements">
+        <!-- Floating Links -->
+        <div class="header-container">
+          <h2 class="custom-header">
+            <a mat-button routerLink="/dashboard" routerLinkActive="active">
+              <div class="icon-text">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                  <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                </svg>
+                <span class="icon-text-gap">Balance</span>
+              </div>
+            </a>
+            <a mat-button routerLink="/connect-wallet" routerLinkActive="active">
+              <div class="icon-text">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+                <span class="icon-text-gap">Account</span>
+              </div>
+            </a>
+          </h2>
+        </div>
+
+        <!-- Toggle button for small screens -->
+        <button *ngIf="isHandset$ | async"
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+
+    <!-- Main Content (Router Outlet) -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

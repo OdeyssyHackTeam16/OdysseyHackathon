@@ -1,0 +1,79 @@
+/* Ensure sidenav container takes full height */
+
+
+.sidenav-container {
+  height: 100vh; /* Adjust if necessary */
+
+}
+
+/* Ensure sidenav width and styling */
+.sidenav {
+  width: 20vh; /* Adjust width as needed */
+  background-color: #18a99a;
+  border-top-right-radius: 15px; /* Adjust the radius as needed */
+  border-bottom-right-radius: 15px; /* Adjust the radius as needed */
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.sidenav mat-toolbar {
+  background-color: #18a99a;
+  color: black; /* Optionally set text color to black for contrast */
+}
+
+/* Stick toolbar to the top */
+.mat-toolbar.mat-primary {
+
+  top: 0;
+  z-index: 1000; /* Ensure toolbar is above other elements */
+}
+
+/* Ensure floating elements are positioned correctly */
+.floating-elements {
+  margin-left: auto; /* Pushes floating elements to the right */
+  display: flex;
+  align-items: center;
+  position: fixed; /* Position relative to the toolbar */
+  right: 20px; /* Adjust right spacing as needed */
+  z-index: 10001;
+}
+
+/* Adjust link styles as needed */
+.floating-elements a {
+  margin-left: 10px; /* Adjust spacing between links */
+  padding: 8px 16px;
+  color: black; /* Example: Set link color */
+}
+.menu-text{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px; /* Adjust as needed */
+  font-weight: bold; /* Adjust font weight if necessary */
+  line-height: 1.2; /* Adjust line height for readability */
+
+}
+h1, h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px; /* Adjust as needed */
+  font-weight: bold; /* Adjust font weight if necessary */
+  line-height: 1.2; /* Adjust line height for readability */
+  /* Additional styles like color, margin, etc. can be added */
+}
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-header {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon-text svg {
+  margin-right: 5px;
+}

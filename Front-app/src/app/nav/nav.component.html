@@ -1,0 +1,46 @@
+<!-- app.component.html -->
+
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav (Menu) -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="icon-text">
+      <!-- Sidenav Title -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- SVG Path for settings icon -->
+      </svg>
+      Menu
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for Dashboard -->
+        <svg width="24px" height="24px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- SVG Content for dashboard icon -->
+        </svg>
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/adviser" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for Adviser -->
+        <svg width="24px" height="24px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- SVG Content for adviser icon -->
+        </svg>
+        Adviser
+      </a>
+      <a mat-list-item routerLink="/aboutus" routerLinkActive="active" class="icon-text">
+        <!-- SVG Icon for About Us -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- SVG Path for info-circle icon -->
+        </svg>
+        About Us
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content Area -->
+  <mat-sidenav-content>
+
+    <app-dashview></app-dashview>
+  </mat-sidenav-content>
+</mat-sidenav-container>

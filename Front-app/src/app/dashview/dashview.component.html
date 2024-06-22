@@ -1,0 +1,49 @@
+<div class="grid-container">
+  <div class="flex-row date-picker-row">
+    <form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+      <div class="flex-item date-range-picker">
+        <mat-form-field appearance="fill" class="date-picker">
+          <mat-label>From Date</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="fromDate" [min]="minDate" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="date-picker">
+          <mat-label>To Date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="toDate" [min]="minDate" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="dateForm.invalid">Submit</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+  <!-- Second row: Energy and appliance charts, and info cards -->
+  <div class="flex-row charts-and-cards-row">
+    <div class="flex-item chart-container" >
+      <canvas style="height: 100%" id="energyChart"></canvas>
+    </div>
+    <div class="flex-item chart-container" style="margin-left: 10vh;height: 90%">
+      <canvas id="applianceChart"></canvas>
+    </div>
+    <div class="flex-item small-card-container">
+      <div>
+        <app-info-card icon="📉" title="Overall System Carbon Footprint" value="150" unit="metric tons CO2/year"></app-info-card>
+        <app-info-card icon="🌍" title="Carbon Emission Reduction" value="40%" unit=""></app-info-card>
+        <app-info-card icon="⚙️" title="Overall System Efficiency" value="70%" unit=""></app-info-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third row: Carbon chart -->
+  <div class="flex-row full-width">
+    <div class="flex-item chart-container">
+      <canvas id="carbonChart"></canvas>
+    </div>
+  </div>
+</div>

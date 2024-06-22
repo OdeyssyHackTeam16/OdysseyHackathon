@@ -1,0 +1,76 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.flex-row {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.flex-item {
+  flex: 1;
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.date-picker-row {
+  align-items: flex-start;
+  height: 5vh;
+  width: 40vh;
+}
+
+.date-range-picker {
+  display: flex;
+  align-items: center;
+  margin-left: 20vh;
+  gap: 20px;
+  flex: 2;
+
+
+}
+.button-container{
+  margin-left: 2vh;
+  margin-bottom: 2vh;
+  background: #ADD8C7 ;
+}
+
+.date-range-picker mat-form-field {
+  width: 48%;
+}
+
+.charts-and-cards-row {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.chart-container {
+  position: relative;
+  height: 35vh; /* Adjust as needed */
+  margin-top: 5vh;
+  width: 100%;
+
+}
+
+.small-card-container {
+  flex: 0 0 20vh; /* Adjust width as needed */
+  margin-right: 5vh; /* Margin from the right edge */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.full-width {
+  height: 20vh; /* Adjust as needed */
+  width: 100vh;
+}
+

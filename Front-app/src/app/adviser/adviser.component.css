@@ -1,0 +1,20 @@
+/* adviser.component.css */
+.advice-container {
+  padding: 20px;
+}
+
+.advice-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.advice-item {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+.timestamp {
+  font-size: 12px;
+  color: #666; /* Adjust color as needed */
+}
