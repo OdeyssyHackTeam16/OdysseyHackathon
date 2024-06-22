@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class InfoCardComponent {
   @Input() icon: string = '';
   @Input() title: string = '';
-  @Input() value: string = '';
+  @Input() value: number |undefined;
   @Input() unit: string = '';
 }

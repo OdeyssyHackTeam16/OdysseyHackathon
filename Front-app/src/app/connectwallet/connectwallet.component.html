@@ -1,43 +1,47 @@
 <div class="container">
   <div class="content">
-    <div *ngIf="!walletConnected &&!connectingstat"><h1 >Connect Wallet</h1>
-
+    <div *ngIf="!walletConnected && !connectingstat && !showPenguin">
+      <h1>Connect Wallet</h1>
       <button
         *ngIf="!walletConnected"
         mat-raised-button
         class="connect-button"
         (click)="connectToWallet()"
-      >Connect Wallet</button></div>
+      >
+        Connect Wallet
+      </button>
+    </div>
 
-    <div *ngIf="connectingstat && walletConnected"  class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    <div *ngIf="walletConnected " class="wallet-info">
-      <h1>Hola!</h1>
-      <div class="penguin">
-        <div class="penguin-bottom">
-          <div class="right-hand"></div>
-          <div class="left-hand"></div>
-          <div class="right-feet"></div>
-          <div class="left-feet"></div>
-        </div>
-        <div class="penguin-top">
-          <div class="right-cheek"></div>
-          <div class="left-cheek"></div>
-          <div class="belly"></div>
-          <div class="right-eye">
-            <div class="sparkle"></div>
-          </div>
-          <div class="left-eye">
-            <div class="sparkle"></div>
-          </div>
-          <div class="blush-right"></div>
-          <div class="blush-left"></div>
-          <div class="beak-top"></div>
-          <div class="beak-bottom"></div>
-        </div>
+    <div *ngIf="connectingstat && !walletConnected" class="lds-ellipsis">
+      <div></div><div></div><div></div><div></div>
+    </div>
+
+    <div *ngIf="showPenguin" class="penguin">
+      <div class="penguin-bottom">
+        <div class="right-hand"></div>
+        <div class="left-hand"></div>
+        <div class="right-feet"></div>
+        <div class="left-feet"></div>
       </div>
+      <div class="penguin-top">
+        <div class="right-cheek"></div>
+        <div class="left-cheek"></div>
+        <div class="belly"></div>
+        <div class="right-eye">
+          <div class="sparkle"></div>
+        </div>
+        <div class="left-eye">
+          <div class="sparkle"></div>
+        </div>
+        <div class="blush-right"></div>
+        <div class="blush-left"></div>
+        <div class="beak-top"></div>
+        <div class="beak-bottom"></div>
+      </div>
+    </div>
 
-
-
+    <div *ngIf="walletConnected" class="wallet-info">
+      <h1>Hola!</h1>
     </div>
   </div>
 </div>

@@ -20,6 +20,10 @@ export class DashviewComponent implements OnInit {
   carbonChart: Chart | undefined;
   applianceChart: Chart | undefined;
 
+  public overallCarbonFootprint: number | undefined;
+  public carbonEmissionReduction: number | undefined;
+  public overallSystemEfficiency: number | undefined;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private fb: FormBuilder,
@@ -68,7 +72,25 @@ export class DashviewComponent implements OnInit {
     this.updateEnergyConsumptionChart(data);
     this.updateCarbonFootprintChart(data);
     this.updateApplianceEnergyConsumptionChart(data);
+    this.calculateInfoCardData(data);
   }
+
+  calculateInfoCardData(data: any[]) {
+    // Calculate the overall system carbon footprint
+    const totalCarbonFootprint = data.reduce((sum, day) => sum + (day.total * 0.5), 0);
+    this.overallCarbonFootprint = parseFloat((totalCarbonFootprint / 1000).toFixed(2)); // Convert to metric tons and format to 2 decimal places
+
+    // Example calculation for carbon emission reduction
+    const initialCarbonFootprint = 100; // Assume an initial value for demonstration purposes
+    const currentCarbonFootprint = this.overallCarbonFootprint;
+    const reductionPercentage = ((initialCarbonFootprint - currentCarbonFootprint) / initialCarbonFootprint) * 100;
+    this.carbonEmissionReduction = parseFloat(reductionPercentage.toFixed(2)); // Format to 2 decimal places
+
+    // Example calculation for overall system efficiency
+    const maxPossibleEfficiency = 100; // Assume max possible efficiency
+    this.overallSystemEfficiency = parseFloat((70).toFixed(2)); // Hardcoded for demonstration; format to 2 decimal places if needed
+  }
+
 
   updateEnergyConsumptionChart(data: any[]) {
     const energyConsumptionData = this.calculateDailyEnergyConsumption(data);
@@ -88,7 +110,7 @@ export class DashviewComponent implements OnInit {
           {
             label: 'Energy Consumption (kWh)',
             data: energyConsumptionData,
-            backgroundColor: '#C6893F',
+            backgroundColor: '#A8DADC',
             borderColor: 'black',
             borderWidth: 1,
           }
@@ -188,15 +210,15 @@ export class DashviewComponent implements OnInit {
     const labels = [];
     const consumptionValues = [];
     const backgroundColors = [
-      '#334258',
-      '#C6893F',
-      '#ADD8C7',
-      '#335269',
-      '#E9E8E7',
-      '#DFAF1C',
+      '#D79E69', // Warm brown
+      '#EFFFFF', // Light gray
+      '#F3E5D7', // Soft beige
+      '#4270f5', // Teal
+      '#EDEDED', // Light gray
+      '#15A798', // Turquoise
       '#A8DADC', // Extra colors if needed
       '#457B9D',
-      '#1D3557',
+      '#5b5b5b',
       '#F4A261',
       '#E76F51'
     ];
@@ -222,7 +244,7 @@ export class DashviewComponent implements OnInit {
     if (this.applianceChart) {
       this.applianceChart.destroy();
     }
-    console.log(labels)
+    console.log(labels);
 
     const ctx = (document.getElementById('applianceChart') as HTMLCanvasElement).getContext('2d');
     // @ts-ignore

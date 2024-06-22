@@ -33,11 +33,12 @@
     </div>
     <div class="flex-item small-card-container">
       <div>
-        <app-info-card icon="📉" title="Overall System Carbon Footprint" value="150" unit="metric tons CO2/year"></app-info-card>
-        <app-info-card icon="🌍" title="Carbon Emission Reduction" value="40%" unit=""></app-info-card>
-        <app-info-card icon="⚙️" title="Overall System Efficiency" value="70%" unit=""></app-info-card>
+        <app-info-card icon="📉" title="Overall System Carbon Footprint" [value]="overallCarbonFootprint" unit="metric tons CO2/year"></app-info-card>
+        <app-info-card icon="🌍" title="Carbon Emission Reduction" [value]="carbonEmissionReduction" unit="%"></app-info-card>
+        <app-info-card icon="⚙️" title="Overall System Efficiency" [value]="overallSystemEfficiency" unit="%"></app-info-card>
       </div>
     </div>
+
   </div>
 
   <!-- Third row: Carbon chart -->

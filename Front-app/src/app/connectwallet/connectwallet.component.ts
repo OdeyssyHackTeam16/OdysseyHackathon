@@ -13,6 +13,7 @@ export class ConnectwalletComponent implements OnInit, OnDestroy {
   public connectingstat: boolean = false;
   public walletConnected: boolean = false;
   public walletId: string = '';
+  public showPenguin: boolean = false;
   private checkInterval: Subscription | null = null;
 
   constructor(private walletService: WalletService, private router: Router) { }
@@ -30,11 +31,19 @@ export class ConnectwalletComponent implements OnInit, OnDestroy {
     if (accounts.length > 0) {
       this.walletConnected = true;
       this.walletId = accounts[0];
-      await this.router.navigate(['/dashboard']); // Navigate to dashboard when connected
+      this.showPenguinAnimation(); // Show penguin animation before navigating
     } else {
       this.walletConnected = false;
       this.walletId = '';
     }
+  }
+
+  showPenguinAnimation = () => {
+    this.connectingstat = false;
+    this.showPenguin = true;
+    setTimeout(() => {
+      this.router.navigate(['/dashboard']);
+    }, 1000); // Delay of 1 second before navigating
   }
 
   ngOnInit() {

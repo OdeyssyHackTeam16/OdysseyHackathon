@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -18,6 +19,8 @@ export class AppComponent implements OnInit {
   status: string | null = null;
   isHandset$: Observable<boolean>;
   isConnectWalletPage: boolean = false;
+
+  @ViewChild('drawer') drawer!: MatSidenav;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -38,12 +41,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.adddata();
+    setTimeout(() => {
+      this.adddata();
+    }, 2000); // Corrected timeout duration to 2000 milliseconds
   }
-
-
 
   adddata() {
     this.ipfsService.loadDataFromIpfsToDb('/my-id/appliance_consumption.json');
+  }
+
+  closeSidenav() {
+    if (this.drawer) {
+      this.drawer.close();
+    }
   }
 }

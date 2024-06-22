@@ -1,0 +1,19 @@
+.maintenance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.maintenance-title {
+  font-size: 3rem; /* Adjust the font size as needed */
+  color: #333; /* Text color */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.maintenance-message {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  color: #666; /* Text color */
+}
