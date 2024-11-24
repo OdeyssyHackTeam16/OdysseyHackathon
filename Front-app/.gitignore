@@ -1,0 +1,53 @@
+# Ignore Angular CLI cache
+.angular/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+
+# Build artifacts
+artifacts/
+
+# Cache files
+cache/
+
+# Node.js dependencies
+node_modules/
+
+# Hardhat cache and artifacts
+cache/
+artifacts/
+
+# Logs
+*.log
+
+# Compiled output
+dist/
+out/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm/
+
+# Editor directories and files
+.vscode/
+*.swp
+*.swo
+
+# Test output
+coverage/
+test-results/
+
+# Ignore generated JSON lock files if you're working with multiple lock formats
+package-lock.json
+yarn.lock
+
+# Ignore unnecessary system files
+.DS_Store
+Thumbs.db
