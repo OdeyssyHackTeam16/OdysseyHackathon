@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Chart, registerables } from 'chart.js';
 import { isPlatformBrowser } from '@angular/common';
 import { IpfsService } from '../ipfs.service';
@@ -15,7 +15,7 @@ export class DashviewComponent implements OnInit {
   public gettingdata: boolean = false;
   minDate: Date;
   maxDate: Date;
-  dateForm: FormGroup;
+  dateForm: UntypedFormGroup;
   energyChart: Chart | undefined;
   carbonChart: Chart | undefined;
   applianceChart: Chart | undefined;
@@ -26,7 +26,7 @@ export class DashviewComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private ipfsService: IpfsService
   ) {
     this.minDate = new Date('2023-01-01');
