@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^13.2.0",
     "@angular/router": "^13.2.0",
     "@openzeppelin/contracts": "^5.0.2",
+    "chart.js": "^4.4.6",
     "dotenv": "^16.4.5",
     "global": "^4.4.0",
     "ipfs-core": "^0.14.0",
