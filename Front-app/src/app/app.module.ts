@@ -23,6 +23,7 @@ import { AdviserComponent } from './adviser/adviser.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import {EtheruimService} from "./service/etheruim.service";
 import { TokenIntegrationComponent } from './token-integration/token-integration.component';
+import {ToastrModule, ToastrService} from "ngx-toastr";
 const dbConfig: DBConfig = {
   name: 'MyDb',
   version: 3,
@@ -60,6 +61,13 @@ const dbConfig: DBConfig = {
         MatCardModule,
         MatGridListModule,
         NgxIndexedDBModule.forRoot(dbConfig),
+      BrowserAnimationsModule,
+      ToastrModule.forRoot({
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+      }),
+
         MatDatepickerModule,
       MatFormFieldModule,
       MatInputModule,

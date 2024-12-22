@@ -30,6 +30,7 @@
     "ipfs-core-types": "^0.14.1",
     "ipfs-http-client": "^60.0.1",
     "ngx-indexed-db": "^9.3.0",
+    "ngx-toastr": "^15.2.2",
     "rxjs": "^7.5.2",
     "solc": "^0.8.26",
     "tslib": "^2.3.0",

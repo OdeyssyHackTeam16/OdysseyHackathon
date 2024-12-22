@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   version: string | null = null;
   status: string | null = null;
   isHandset$: Observable<boolean>;
-  isConnectWalletPage: boolean = false;
+  isConnectWalletPage = false;
 
   @ViewChild('drawer') drawer!: MatSidenav;
 

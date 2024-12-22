@@ -31,7 +31,9 @@ export class ConnectwalletComponent implements OnInit, OnDestroy {
     if (accounts.length > 0) {
       this.walletConnected = true;
       this.walletId = accounts[0];
-      this.showPenguinAnimation(); // Show penguin animation before navigating
+      console.error(accounts)
+      localStorage.setItem('walletId', this.walletId);
+      this.showPenguinAnimation();
     } else {
       this.walletConnected = false;
       this.walletId = '';
